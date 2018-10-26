@@ -15,12 +15,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/crissty/ng2-listbox-dual"
+    "url": "git+https://github.com/crissty/ng2-listbox-dual.git"
   },
-  "author": {
-    "name": "Cristina Guerra",
-    "email": "crissty.rubio@gmail.com"
-  },
+  "author": "Cristina Guerra <crissty.rubio@gmail.com>",
   "keywords": [
     "angular"
   ],
@@ -82,5 +79,8 @@
     "lodash.isequal": "^4.5.0",
     "lodash.orderby": "^4.6.0",
     "tsickle": "^0.27.2"
-  }
+  },
+  "description": "An Angular 6 component inspired by the following jQuery library: https://github.com/Geodan/DualListBox",
+  "homepage": "https://github.com/crissty/ng2-listbox-dual#readme",
+  "main": "gulpfile.js"
 }
