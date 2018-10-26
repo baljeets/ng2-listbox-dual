@@ -3,7 +3,7 @@
  */
 export interface IListBoxItem {
     value: string;
-    text: string;
+    text: any;
 }
 /**
  * Helper interface to emit event when

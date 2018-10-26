@@ -1,11 +1,11 @@
 {
-  "name": "ng2-dual-list-box",
-  "version": "1.2.1",
+  "name": "ng2-listbox-dual",
+  "version": "1.0.0",
   "scripts": {
     "build": "npm run packagr",
     "build:watch": "gulp",
     "docs": "npm run docs:build",
-    "docs:build": "compodoc -p tsconfig.json -n ng2-dual-list-box -d docs --hideGenerator",
+    "docs:build": "compodoc -p tsconfig.json -n ng2-listbox-dual -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
     "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
@@ -15,18 +15,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/matsura/ng2-dual-list-box"
+    "url": "https://github.com/crissty/ng2-listbox-dual"
   },
   "author": {
-    "name": "Eldar Granulo",
-    "email": "eldar32@gmail.com"
+    "name": "Cristina Guerra",
+    "email": "crissty.rubio@gmail.com"
   },
   "keywords": [
     "angular"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matsura/ng2-dual-list-box/issues"
+    "url": "https://github.com/crissty/ng2-listbox-dual/issues"
   },
   "devDependencies": {
     "@angular/common": "^5.2.7",
@@ -59,7 +59,7 @@
     "karma-phantomjs-launcher": "^1.0.2",
     "karma-typescript": "^3.0.0",
     "karma-typescript-angular2-transform": "^1.0.0",
-    "ng-packagr": "^2.1.0",
+    "ng-packagr": "^2.4.5",
     "node-sass": "^4.5.2",
     "node-watch": "^0.5.2",
     "phantomjs-prebuilt": "^2.1.7",
@@ -76,6 +76,7 @@
     "node": ">=6.0.0"
   },
   "dependencies": {
+    "angular-cli": "^1.0.0-beta.28.3",
     "lodash.differencewith": "^4.5.0",
     "lodash.intersectionwith": "^4.4.0",
     "lodash.isequal": "^4.5.0",

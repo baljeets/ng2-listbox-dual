@@ -1,17 +1,23 @@
-# ng2-dual-list-box
+# ng2-listbox-dual
 
-An Angular 4 component inspired by the following jQuery library: https://github.com/Geodan/DualListBox
+An Angular 6 component inspired by the following jQuery library: https://github.com/Geodan/DualListBox
 
 
 Uses Bootstrap 3 classes for styling and responsiveness
 
-[![NPM](https://nodei.co/npm/ng2-dual-list-box.png?downloads=true&downloadRank=true)](https://npmjs.org/package/ng2-dual-list-box)
+[![NPM](https://nodei.co/npm/ng2-listbox-dual.png?downloads=true&downloadRank=true)](https://npmjs.org/package/ng2-listbox-dual)
 
-[![Build Status](https://travis-ci.org/matsura/ng2-dual-list-box.svg?branch=master)](https://travis-ci.org/matsura/ng2-dual-list-box) [![Coverage Status](https://coveralls.io/repos/github/matsura/ng2-dual-list-box/badge.svg?branch=master)](https://coveralls.io/github/matsura/ng2-dual-list-box?branch=master)
+[![Build Status](https://travis-ci.org/matsura/ng2-listbox-dual.svg?branch=master)](https://travis-ci.org/matsura/ng2-listbox-dual) [![Coverage Status](https://coveralls.io/repos/github/matsura/ng2-listbox-dual/badge.svg?branch=master)](https://coveralls.io/github/matsura/ng2-listbox-dual?branch=master)
 
 ## Documentation
 
-Full documentation available at http://ng2-duallistbox-docs.surge.sh/
+| Option       | Type                 | Default    | Description |
+| ------------ | -------------------- | ---------- | ----------- |
+| `data`       | Array<{}>            | []         | List of available objects.       |
+| `selected`   | Array<{}>            | []         | List of selected objects.        | 
+| `valueField` | String               | id         | Field of the object to get value. |
+| `textField`  | Array<string>        | ["name"]   | Field(s) of the object to show. | 
+| `separator`  | String               | " - "      | The separator beetween fields (textField) to show. |
 
 ## Demo
 
@@ -22,7 +28,7 @@ http://ng2-duallistbox-demo.surge.sh/
 To install this library, run:
 
 ```bash
-$ npm install ng-dual-list-box --save
+$ npm install ng2-listbox-dual --save
 ```
 
 and then from your Angular `AppModule`:
@@ -34,7 +40,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import your library
-import { DualListBoxModule } from 'ng-dual-list-box';
+import { DualListBoxModule } from 'ng2-listbox-dual';
 
 @NgModule({
   declarations: [
@@ -55,7 +61,7 @@ Use it in your template like this. Check the documentation for other available f
 ```html
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <ng2-dual-list-box [data]="items" valueField="id" textField="name"
+    <ng2-dual-list-box [data]="items" [selected]="list" valueField="id" [textField]="['name']"
                        (onAvailableItemSelected)="log($event)"
                        (onSelectedItemsSelected)="log($event)"
                        (onItemsMoved)="log($event)"></ng2-dual-list-box>
@@ -68,7 +74,7 @@ You can also use ngModel and formControlName. When this is used the variable or 
 ```html
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <ng2-dual-list-box [data]="items" valueField="id" textField="name"
+    <ng2-dual-list-box [data]="items" [selected]="list" valueField="id" [textField]="['name']"
                        [(ngModel)]="selected"
                        (onAvailableItemSelected)="log($event)"
                        (onSelectedItemsSelected)="log($event)"
@@ -80,7 +86,7 @@ You can also use ngModel and formControlName. When this is used the variable or 
 ```html
 <div class="row">
   <div class="col-md-8 col-md-offset-2" [formGroup]="form">
-    <ng2-dual-list-box [data]="items" valueField="id" textField="name"
+    <ng2-dual-list-box [data]="items" [selected]="list" valueField="id" [textField]="['name']"
                        formControlName="selected"
                        (onAvailableItemSelected)="log($event)"
                        (onSelectedItemsSelected)="log($event)"
@@ -108,4 +114,4 @@ $ npm run lint
 
 ## License
 
-MIT © [Eldar Granulo](mailto:eldar32@gmail.com)
+MIT © [Cristina Guerra](mailto:crissty.rubio@gmail.com)

@@ -20,12 +20,55 @@ import { IItemsMovedEvent, IListBoxItem } from './models';
 })
 export class DualListBoxComponent implements OnInit, ControlValueAccessor {
 
+    // field to use for value of option
+    @Input() valueField = 'id';
+    // field to use for displaying option text
+    @Input() set textField(fields: any) {
+        if (Array.isArray(fields)) {
+            this._textField = (fields.length > 0) ? fields : ['name'];
+        } else {
+            this._textField = (fields) ? [fields] : ['name'];
+        }
+    };
+
+    @Input() separator = ' - ';
     // array of items to display in left box
     @Input() set data(items: Array<{}>) {
-        this.availableItems = [...(items || []).map((item: {}, index: number) => ({
-            value: item[this.valueField].toString(),
-            text: item[this.textField]
-        }))];
+        this.availableItems = [...(items || []).map((item: {}, index: number) => {
+            let fields = this._textField.map((field) => {
+                return item[field];
+            }).filter((data) => data != undefined);
+            return ({
+                value: item[this.valueField].toString(),
+                text: fields.join(this.separator)
+            }); 
+        }).filter((data) => data != undefined)];
+    };
+    // array of items to display in right box
+    @Input() set selected(items: Array<{}>) {
+        if (!this.selectedItems) {
+            this.selectedItems = [...(items || []).map((item: {}, index: number) => {
+                let position;
+                var found = this.availableItems.find((element, index) => {
+                    position = index;
+                    if (item.hasOwnProperty(this.valueField)) {
+                        return element.value === item[this.valueField];
+                    }
+                    return element.value === item;
+                });
+                if (found) {
+                    this.availableItems.splice(position, 1);
+                    return found;
+                }
+                let fields = this._textField.map((field) => {
+                    return item[field];
+                }).filter((data) => data != undefined);
+                return ({
+                    value: item[this.valueField].toString(),
+                    text: fields.join(this.separator)
+                }); 
+            })];
+        }
     };
     // input to set search term for available list box from the outside
     @Input() set availableSearch(searchTerm: string) {
@@ -37,10 +80,7 @@ export class DualListBoxComponent implements OnInit, ControlValueAccessor {
         this.searchTermSelected = searchTerm;
         this.selectedSearchInputControl.setValue(searchTerm);
     };
-    // field to use for value of option
-    @Input() valueField = 'id';
-    // field to use for displaying option text
-    @Input() textField = 'name';
+
     // text to display as title above component
     @Input() title: string;
     // time to debounce search output in ms
@@ -64,10 +104,11 @@ export class DualListBoxComponent implements OnInit, ControlValueAccessor {
     @Output() onItemsMoved: EventEmitter<IItemsMovedEvent> = new EventEmitter<IItemsMovedEvent>();
 
     // private variables to manage class
+    _textField = ['name'];
     searchTermAvailable = '';
     searchTermSelected = '';
     availableItems: Array<IListBoxItem> = [];
-    selectedItems: Array<IListBoxItem> = [];
+    selectedItems: Array<IListBoxItem>;
     listBoxForm: FormGroup;
     availableListBoxControl: FormControl = new FormControl();
     selectedListBoxControl: FormControl = new FormControl();
@@ -116,12 +157,15 @@ export class DualListBoxComponent implements OnInit, ControlValueAccessor {
         if (!this.availableItems.length) {
             return;
         }
+        let moved = this.availableItems.map(function (obj) {
+            return obj.value;
+        });
         this.selectedItems = [...this.selectedItems, ...this.availableItems];
         this.availableItems = [];
         this.onItemsMoved.emit({
             available: this.availableItems,
             selected: this.selectedItems,
-            movedItems: this.availableListBoxControl.value,
+            movedItems: moved,
             from: 'available',
             to: 'selected'
         });
@@ -137,12 +181,15 @@ export class DualListBoxComponent implements OnInit, ControlValueAccessor {
         if (!this.selectedItems.length) {
             return;
         }
+        let moved = this.selectedItems.map(function (obj) {
+            return obj.value;
+        });
         this.availableItems = [...this.availableItems, ...this.selectedItems];
         this.selectedItems = [];
         this.onItemsMoved.emit({
             available: this.availableItems,
             selected: this.selectedItems,
-            movedItems: this.selectedListBoxControl.value,
+            movedItems: moved,
             from: 'selected',
             to: 'available'
         });

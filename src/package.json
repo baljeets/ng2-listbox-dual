@@ -1,20 +1,20 @@
 {
-  "name": "ng2-dual-list-box",
-  "version": "1.2.1",
+  "name": "ng2-listbox-dual",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/matsura/ng2-dual-list-box"
+    "url": "https://github.com/crissty/ng2-listbox-dual"
   },
   "author": {
-    "name": "Eldar Granulo",
-    "email": "eldar32@gmail.com"
+    "name": "Cristina Guerra",
+    "email": "crissty.rubio@gmail.com"
   },
   "keywords": [
     "angular"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/matsura/ng2-dual-list-box/issues"
+    "url": "https://github.com/crissty/ng2-listbox-dual/issues"
   },
   "module": "ng2-dual-list-box.js",
   "typings": "ng2-dual-list-box.d.ts",
