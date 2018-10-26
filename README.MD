@@ -7,7 +7,7 @@ Uses Bootstrap 3 classes for styling and responsiveness
 
 [![NPM](https://nodei.co/npm/ng2-listbox-dual.png?downloads=true&downloadRank=true)](https://npmjs.org/package/ng2-listbox-dual)
 
-[![Build Status](https://travis-ci.org/matsura/ng2-listbox-dual.svg?branch=master)](https://travis-ci.org/matsura/ng2-listbox-dual) [![Coverage Status](https://coveralls.io/repos/github/matsura/ng2-listbox-dual/badge.svg?branch=master)](https://coveralls.io/github/matsura/ng2-listbox-dual?branch=master)
+[![Build Status](https://travis-ci.org/crissty/ng2-listbox-dual.svg?branch=master)](https://travis-ci.org/crissty/ng2-listbox-dual) [![Coverage Status](https://coveralls.io/repos/github/crissty/ng2-listbox-dual/badge.svg?branch=master)](https://coveralls.io/github/crissty/ng2-listbox-dual?branch=master)
 
 ## Documentation
 
