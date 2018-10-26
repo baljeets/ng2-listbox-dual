@@ -1,6 +1,6 @@
 {
   "name": "ng2-listbox-dual",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "build": "npm run packagr",
     "build:watch": "gulp",

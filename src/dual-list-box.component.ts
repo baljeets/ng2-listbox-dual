@@ -108,7 +108,7 @@ export class DualListBoxComponent implements OnInit, ControlValueAccessor {
     searchTermAvailable = '';
     searchTermSelected = '';
     availableItems: Array<IListBoxItem> = [];
-    selectedItems: Array<IListBoxItem>;
+    selectedItems: Array<IListBoxItem> = [];
     listBoxForm: FormGroup;
     availableListBoxControl: FormControl = new FormControl();
     selectedListBoxControl: FormControl = new FormControl();

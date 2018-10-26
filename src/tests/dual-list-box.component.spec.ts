@@ -43,7 +43,7 @@ describe('DualListBoxComponent with TCB', (): void => {
 
         const component: DualListBoxComponent = fixture.componentInstance;
         component.valueField = 'id';
-        component.textField = 'name';
+        component.textField = ['name'];
         component.data = testArray;
 
         fixture.detectChanges();
@@ -87,7 +87,7 @@ describe('DualListBoxComponent with TCB', (): void => {
 
         fixture.detectChanges();
 
-        const boxTitles: string[] = fixture.debugElement.queryAll(By.css('.text-center.vertical-spacing-5'))
+        const boxTitles: string[] = fixture.debugElement.queryAll(By.css('h4.vertical-spacing-5'))
             .map((item: DebugElement) => (item.nativeElement as HTMLHeadingElement).innerHTML.toString());
 
         expect(boxTitles.length).toEqual(2);
